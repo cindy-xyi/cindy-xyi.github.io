@@ -22,18 +22,40 @@
             width: 100%;
         }
         .gallery-item {
+            position: relative;
             background: #fff;
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
-        .gallery-item img {
+        .gallery-item img, .gallery-item video, .gallery-item iframe {
             width: 100%;
+            height: auto;
             border-radius: 8px;
+            transition: transform 0.3s ease; /* Smooth zoom effect */
         }
-        .gallery-item video {
-            width: 100%;
-            border-radius: 8px;
+        .gallery-item iframe {
+            height: 400px; /* Adjust the height of the PDF preview */
+        }
+        .gallery-item:hover img, .gallery-item:hover video, .gallery-item:hover iframe {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+        .description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 14px;
+        }
+        .gallery-item:hover .description {
+            opacity: 1; /* Show description on hover */
         }
         h1 {
             text-align: center;
@@ -44,21 +66,46 @@
 <body>
     <h1>My Portfolio</h1>
     <div class="gallery">
-        <!-- Photos -->
+        <!-- Video 1 -->
         <div class="gallery-item">
-            <img src="images/photo1.jpg" alt="Photo 1">
+            <video controls>
+                <source src="assets/Walker's first steps.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="description">Walking robot made for ME133 project.</div>
         </div>
-        <div class="gallery-item">
-            <img src="images/photo2.jpg" alt="Photo 2">
-        </div>
-        <!-- Videos -->
+        <!-- Video 2 -->
         <div class="gallery-item">
             <video controls>
                 <source src="assets/hopping_robot.mov" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <div class="description">Hopping robot for Summer Research project 2018.</div>
         </div>
+
+        <!-- Photo 2 -->
         <div class="gallery-item">
-            <video controls>
-                <source src="assets/Walker's first steps.MOV" type="video/mp4">
-                Your browser
+            <img src="assets/anti-tippers.JPG" alt="Photo 1">
+            <div class="description">Assistive anti-tippers for ME105: Design for Freedom from Disability.</div>
+        </div>
+
+        <!-- PDF Preview -->
+        <div class="gallery-item">
+            <iframe src="assets/Design for Freedom from Disability.pdf" frameborder="0"></iframe>
+            <div class="description">Click to view a detailed project report.</div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="gallery-item">
+            <img src="assets/bike.jpg" alt="Photo 2">
+            <div class="description">Bike-powered phone charger.</div>
+        </div>
+
+        <!-- PDF Preview -->
+        <div class="gallery-item">
+            <iframe src="assets/Bicycle-powered Phone Charger.pdf" frameborder="0"></iframe>
+            <div class="description">Click to view a detailed project report.</div>
+        </div>
+    </div>
+</body>
+</html>
