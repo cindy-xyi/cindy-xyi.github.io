@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .gallery-item {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .gallery-item video {
+            width: 100%;
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Portfolio</h1>
+    <div class="gallery">
+        <!-- Photos -->
+        <div class="gallery-item">
+            <img src="images/photo1.jpg" alt="Photo 1">
+        </div>
+        <div class="gallery-item">
+            <img src="images/photo2.jpg" alt="Photo 2">
+        </div>
+        <!-- Videos -->
+        <div class="gallery-item">
+            <video controls>
+                <source src="assets/hopping_robot.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="gallery-item">
+            <video controls>
+                <source src="assets/Walker's first steps.MOV" type="video/mp4">
+                Your browser
