@@ -15,7 +15,8 @@
         }
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Equal width columns */
+            grid-auto-rows: 300px; /* Default row height */
             gap: 16px;
             padding: 20px;
             max-width: 1200px;
@@ -28,18 +29,22 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .gallery-item img, .gallery-item video, .gallery-item iframe {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             border-radius: 8px;
-            transition: transform 0.3s ease; /* Smooth zoom effect */
+            transition: transform 0.3s ease;
         }
-        .gallery-item iframe {
-            height: 400px; /* Adjust the height of the PDF preview */
+        .gallery-item.large {
+            grid-row: span 2; /* Occupies two rows */
         }
         .gallery-item:hover img, .gallery-item:hover video, .gallery-item:hover iframe {
-            transform: scale(1.05); /* Slight zoom effect on hover */
+            transform: scale(1.05);
         }
         .description {
             position: absolute;
@@ -55,31 +60,46 @@
             font-size: 14px;
         }
         .gallery-item:hover .description {
-            opacity: 1; /* Show description on hover */
+            opacity: 1;
         }
         h1 {
-            text-align: center;
+            text-align: left;
             margin: 20px;
         }
-
-        /* Modal Style */
-        /* You may add a modal style here for a more advanced PDF viewing option */
     </style>
 </head>
 <body>
-    <h1>My Portfolio</h1>
+    <h1>Cindy<br>Huang</h1>
     <div class="gallery">
-        <!-- Video 1 -->
+
+
+        <!-- Small Photo 1 -->
         <div class="gallery-item">
+            <img src="assets/pigGo.jpg" alt="Photo 1">
+            <div class="description">Assistive anti-tippers for ME105: Design for Freedom from Disability.</div>
+        </div>
+
+        <!-- Small Photo 1 -->
+        <div class="gallery-item">
+            <img src="assets/big_wheel.jpg" alt="Photo 1">
+            <div class="description">Assistive anti-tippers for ME105: Design for Freedom from Disability.</div>
+        </div>
+
+        <!-- Small Photo 1 -->
+        <div class="gallery-item large">
+            <img src="assets/skateboard.JPG" alt="Photo 1">
+            <div class="description">Assistive anti-tippers for ME105: Design for Freedom from Disability.</div>
+        </div>        
+<!-- 
+        <div class="gallery-item large">
             <video controls>
                 <source src="assets/Walker's first steps.MOV" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="description">Walking robot made for ME133 project.</div>
-        </div>
+        </div> -->
 
-        <!-- Video 2 -->
-        <div class="gallery-item">
+        <div class="gallery-item large">
             <video controls>
                 <source src="assets/hopping_robot.mov" type="video/mp4">
                 Your browser does not support the video tag.
@@ -87,35 +107,126 @@
             <div class="description">Hopping robot for Summer Research project 2018.</div>
         </div>
 
-        <!-- Photo 1 -->
+
+        <div class="gallery-item">
+            <img src="assets/arm.JPG" alt="Photo 1">
+            <div class="description">Assistive anti-tippers for ME105: Design for Freedom from Disability.</div>
+        </div>
+
+        <div class="gallery-item large">
+            <video controls>
+                <source src="assets/Walker's first steps.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="description">Walking robot made for ME133 project.</div>
+        </div>  
+
+        <!-- Small Photo 1 -->
+        <div class="gallery-item">
+            <img src="assets/rkdc_sim.png" alt="Photo 1">
+            <div class="description">Assistive anti-tippers for ME105: Design for Freedom from Disability.</div>
+        </div>       
+
+
+        <div class="gallery-item">
+            <img src="assets/Walker.PNG" alt="Photo 1">
+            <div class="description">Assistive anti-tippers for ME105: Design for Freedom from Disability.</div>
+        </div>                
+
+        <div class="gallery-item">
+            <img src="assets/point_cloud_2.png" alt="Photo 1">
+            <div class="description">Assistive anti-tippers for ME105: Design for Freedom from Disability.</div>
+        </div>        
+
+
+        <div class="gallery-item">
+            <video controls>
+                <source src="assets/mouse.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="description">Walking robot made for ME133 project.</div>
+        </div>          
+
+        
+        <div class="gallery-item">
+            <video controls>
+                <source src="assets/me72.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="description">Walking robot made for ME133 project.</div>
+        </div>                 
+
+        <!-- Small Photo 2 -->
+        <div class="gallery-item large">
+            <img src="assets/bike.jpg" alt="Photo 2">
+            <div class="description">Bike-powered phone charger.</div>
+        </div>
+        
+
+        <div class="gallery-item">
+            <video controls>
+                <source src="assets/hovercraft.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="description">Walking robot made for ME133 project.</div>
+        </div>               
+
+
+        <div class="gallery-item">
+            <img src="assets/tank.JPG" alt="Photo 1">
+            <div class="description">Assistive anti-tippers for ME105: Design for Freedom from Disability.</div>
+        </div>        
+
+<!-- 
+        <div class="gallery-item">
+            <img src="assets/basket.JPG" alt="Photo 1">
+            <div class="description">Assistive anti-tippers for ME105: Design for Freedom from Disability.</div>
+        </div>       
+ -->
+        <!-- Small Photo 1 -->
         <div class="gallery-item">
             <img src="assets/anti-tippers.JPG" alt="Photo 1">
             <div class="description">Assistive anti-tippers for ME105: Design for Freedom from Disability.</div>
         </div>
 
-        <!-- PDF Preview 1 -->
         <div class="gallery-item">
-            <!-- Link to open the PDF in a new tab -->
+            <video controls>
+                <source src="assets/whiskers.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="description">Walking robot made for ME133 project.</div>
+        </div>        
+
+        <div class="gallery-item large">
+            <video controls>
+                <source src="assets/plants.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="description">Walking robot made for ME133 project.</div>
+        </div>                  
+
+
+        <!-- Large PDF Preview 1 -->
+        <div class="gallery-item">
             <a href="assets/Design for Freedom from Disability.pdf" target="_blank">
                 <iframe src="assets/Design for Freedom from Disability.pdf" frameborder="0"></iframe>
             </a>
             <div class="description">Click to view a detailed project report.</div>
         </div>
 
-        <!-- Photo 2 -->
+        <!-- Small PDF Preview 2 -->
         <div class="gallery-item">
-            <img src="assets/bike.jpg" alt="Photo 2">
-            <div class="description">Bike-powered phone charger.</div>
-        </div>
-
-        <!-- PDF Preview 2 -->
-        <div class="gallery-item">
-            <!-- Link to open the PDF in a new tab -->
             <a href="assets/Bicycle-powered Phone Charger.pdf" target="_blank">
                 <iframe src="assets/Bicycle-powered Phone Charger.pdf" frameborder="0"></iframe>
             </a>
             <div class="description">Click to view a detailed project report.</div>
         </div>
+
+ 
+
+
+
+
     </div>
 </body>
 </html>
